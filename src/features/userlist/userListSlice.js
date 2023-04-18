@@ -7,12 +7,10 @@ const initialState = {
   error: "",
 };
 
-const fetchUsers = createAsyncThunk("userList/fetchUser", () => {
+export const fetchUsers = createAsyncThunk("userList/fetchUsers", () => {
   return axios
     .get("https://jsonplaceholder.typicode.com/users")
-    .then((response) => {
-      response.data.map((user) => user.id);
-    });
+    .then((response) => response.data);
 });
 
 const userListSlice = createSlice({
